@@ -10,15 +10,16 @@ temporarilyAddTags: Winner
 [hiddenAction_lose]
 autoTrigger: if numberOfUnitsInEnemyTeam(withTag='Winner', greaterThan=0)
 requireConditional: if self.globalTeamTags(includes='USSR') or self.globalTeamTags(includes='Reich') 
-addResources:hp=-999999
+switchToNeutralTeam:true
 
 [graphics]
 showHealthBar: false
 showEnergyBar: false
 showShotDelayBar:false
+showTransportBar: false
 #===Resourse===#
 
-[global_resource_Rc]
+[global_resource_rc]
 displayNameShort:Sp
 displayName: 
 hidden:false
@@ -32,13 +33,13 @@ priority: 10
 displayColor:#ffcdc6b3
 
 [global_resource_L]
-displayName: 
+displayName: Infantry limit
 hidden:false
 priority: 3
 displayColor:#ff2b7dbe
 
 [global_resource_Lt]
-displayName:
+displayName: Techno limit
 hidden:false
 priority: 4
 displayColor:#ff2b9dbe
