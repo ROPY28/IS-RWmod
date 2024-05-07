@@ -1,0 +1,59 @@
+
+
+
+[graphics]
+showHealthBar: false
+showEnergyBar: false
+
+[action_throw]
+displayType: action
+price: ammo=10
+text: bombshell!
+description: -Throw a grenade! \n -Grenade hits everyone in the blast area 
+description_ru: -Бросок гранаты! \n -Граната поражает всех в зоне взрыва
+fireTurretXAtGround: throw
+buildSpeed: 0.8
+pos: 1.1
+
+addActionCooldownTime: 10s
+onlyOneUnitAtATime: true
+whenBuilding_cannotMove:false
+
+[hiddenAction_ammo]
+autoTrigger: if self.customTimer(laterThanSeconds=1)
+addResources:ammo=2
+[turret_throw]
+x: 0
+y: 0
+projectile: bomb
+attachedTo: 1
+slave: true
+limitingRange: 190
+shoot_flame: NONE
+canShoot: false
+invisible:true
+
+[projectile_bomb]
+life: 300
+speed: 2.4
+targetSpeedAcceleration: 0.02
+targetSpeed: 3.5
+
+image: ROOT:\data\projectile\bombshell.png
+drawSize: 0.8
+hitSound:true
+explodeEffect: NONE
+largeHitEffect: false
+targetSpeed: 1
+targetSpeedAcceleration: 0.001
+spawnUnit: isGrenade
+
+friendlyFire: true
+deflectionPower: -1
+areaDamage: 5
+armourIgnoreAmount: 12
+areaRadius: 5
+trailEffect:false
+
+initialUnguidedSpeedHeight: 0.6
+gravity: 0.12

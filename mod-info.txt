@@ -1,0 +1,23 @@
+[mod]
+title: IS_1.5.1_Deluxe v4 b6
+
+description_ru: -Легенда серий ИС мода. Альтернативная война, тут пехота с танками и артиллерий. Бросайте гранаты, стройте технику и боритесь за превосходство. Мод рекомендуется играть против живых игроков, Минимум спама, захватывайте точки и веселитесь.
+
+description: -Legend of the IS mod series. An alternative war, here the infantry with tanks and artillery. Throw grenades, build vehicles and fight for superiority. The mod is recommended to play against other players, Minimum spam, capture points and have fun.
+
+tags: units, infantry, tanks, team wars
+
+thumbnail: mod-thumbnail.png
+
+Mod creator: Valya (Змейка)
+
+Справка: Некоторые спрайты эффектов, были взяты от Сушимаки
+
+Reference: Some sprite effects were taken from Sushimaki
+
+minVersion:1.15p9
+
+---Заметка---
+#4a000000 -Черный цвет
+#93004992 -Прозрачный цвет воды
+#ffffcd00 -Свет цвет

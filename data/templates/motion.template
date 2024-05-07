@@ -1,0 +1,199 @@
+
+#Motion effects and crush
+
+[effect_trackTanks]
+life: 350
+scaleFrom: 1
+scaleTo: 1.1
+alpha: 0.3
+drawUnderUnits:true
+attachedToUnit: false
+image: ROOT:/data/images/trackTanks.png
+priority:verylow
+
+[turret_hit2]
+x: 0
+y: 0
+invisible: true
+projectile: hit2
+canShoot: false
+
+[projectile_hit2]
+invisible:true
+#areaDamage: 170
+#areaRadius: 25
+areaDamage: 0
+areaRadius: 0
+life: 70
+friendlyFire: true
+targetGround: true
+targetGroundSpread: 1
+explodeEffect: NONE
+
+mutator1_ifUnitWithTags: USSR, wehrmacht, notpress
+mutator1_areaDamageMultiplier: 0.0
+
+mutator2_ifUnitWithTags: isBush
+mutator2_areaDamageMultiplier: 2.5
+
+[effect_mr]
+#motor
+createWhenZoomedOut: false
+stripIndex: effects
+frameIndex: 0
+life: 160
+fadeOut: true
+attachedToUnit: false
+color:#70f2f2f2
+fadeInTime: 6
+scaleFrom: 0.6
+scaleTo: 0.6
+alpha: 0.25
+drawUnderUnits:false
+hSpeed: 0.3
+xSpeedAbsolute: -0.2
+hOffsetRandom: 0.15
+yOffsetRelative: -16
+dirOffsetRandom: 170
+xOffsetRelativeRandom: 4
+yOffsetRelativeRandom: 2
+xSpeedAbsoluteRandom: 0.05
+ySpeedAbsoluteRandom:0.1
+atmospheric: true
+
+[effect_flameW]
+@copyFromSection:effect_mr
+yOffsetRelative: -1
+color:#9eff5900
+
+[effect_rotorwash]
+image: ROOT:\data\images\wash.png
+createWhenOverLand: false
+life: 35
+spawnChance: 1
+fadeOut: true
+attachedToUnit: false
+fadeInTime:2
+scaleFrom: 0.22
+scaleTo: 1.3
+alpha: 0.5
+drawUnderUnits:true
+hOffset: -40
+dirOffsetRandom: 160
+dirSpeedRandom: 0.6
+atmospheric: true
+
+[effect_rotordust]
+image: ROOT:\data\images\wash.png
+createWhenOverLiquid: false
+life: 30
+spawnChance: 1
+fadeOut: true
+attachedToUnit: false
+fadeInTime:2
+scaleFrom: 0.22
+scaleTo: 1.3
+alpha: 1
+color: #916C5B
+drawUnderUnits:true
+hOffset: -40
+dirOffsetRandom: 160
+dirSpeedRandom: 0.6
+atmospheric: true
+
+
+#IS 1.7
+
+[effect_movementTrail]
+createWhenZoomedOut: false
+priority:high
+attachedToUnit:false
+image:ROOT:\data\images\smoke.png
+life: 50
+xOffsetRelativeRandom: 1
+yOffsetRelativeRandom: 1
+yOffsetRelative: -7
+xOffsetRelative: -4
+scaleFrom: 0.3
+scaleTo: 0
+alpha: 0.8
+dirOffsetRandom: 360
+dirSpeedRandom: 3
+
+
+[effect_movementTrail2]
+createWhenZoomedOut: false
+priority:high
+attachedToUnit:false
+image:ROOT:\data\images\smoke.png
+life: 50
+xOffsetRelativeRandom: 1
+yOffsetRelativeRandom: 1
+yOffsetRelative: -7
+xOffsetRelative: 4
+scaleFrom: 0.3
+scaleTo: 0
+alpha: 0.8
+dirOffsetRandom: 360
+dirSpeedRandom: 3
+
+
+
+
+#===BrokenSmoke===#
+#-Для самолётов
+
+[effect_BrokenFire]
+image:ROOT:/data/images/BrokenFire.png
+life: 35
+attachedToUnit: false
+drawUnderUnits:false
+fadeOut: true
+alpha: 0.55
+atmospheric: true
+scaleFrom: 0.6
+scaleTo: 1.2
+xOffsetRelative: 0
+yOffsetRelative: 0
+
+[effect_BrokenSmoke]
+image:ROOT:/data/images/BrokenSmoke.png
+life: 100
+attachedToUnit: false
+drawUnderUnits:false
+fadeOut: true
+alpha: 0.55
+atmospheric: true
+scaleFrom: 0.6
+scaleTo: 1.6
+xOffsetRelative: 0
+yOffsetRelative: 0
+
+[effect_BrokenSmoke2]
+image:ROOT:/data/images/BrokenSmoke.png
+life: 200
+attachedToUnit: false
+drawUnderUnits:false
+fadeOut: true
+alpha: 0.55
+atmospheric: true
+scaleFrom: 0.6
+scaleTo: 1.7
+xOffsetRelativeRandom: 2
+xOffsetRelative: 0
+yOffsetRelative: 0
+
+[effect_BrokenSmoke3]
+image:ROOT:/data/images/BrokenSmoke.png
+life: 300
+attachedToUnit: false
+drawUnderUnits:false
+fadeOut: true
+alpha: 0.55
+atmospheric: true
+scaleFrom: 0.6
+scaleTo: 1.8
+delayedStartTimer: 10
+xOffsetRelativeRandom: 3
+xOffsetRelative: 0
+yOffsetRelative: 0

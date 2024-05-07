@@ -1,0 +1,100 @@
+
+#===Explosions===#
+
+[effect_Explode]
+life: 30
+attachedToUnit: true
+image: ROOT:data/images/explode_big.png
+scaleFrom: 1.7
+scaleTo: 1.7
+total_frames: 14
+animateFrameStart: 0
+animateFrameEnd: 13
+animateFrameSpeed: 0.13
+fadeOut: false
+yOffsetRelative: 0
+xOffsetRelative: 0
+
+[effect_Explode2]
+dirOffsetRandom:180
+priority:high
+fadeInTime: 3
+fadeOut: true
+attachedToUnit: false
+scaleFrom: 0.6
+scaleTo:0.6
+yOffsetRelative: 5
+alsoPlaySound:ROOT:data\sfx\weapons\bombs2.ogg:0.2
+image:ROOT:data\images\explosion2.png
+total_frames: 10
+animateFrameStart: 0
+animateFrameEnd: 9
+animateFramePingPong: false
+animateFrameSpeed: 0.35
+alpha:1
+
+[effect_Explode3]
+dirOffsetRandom: 180
+priority:high
+fadeInTime: 3
+fadeOut: true
+attachedToUnit: false
+scaleFrom: 0.2
+scaleTo: 0.2
+yOffsetRelative: 5
+alsoPlaySound:ROOT:data\sfx\weapons\bombs.ogg:0.5
+image:ROOT:data\images\fire_boom.png
+total_frames: 18
+animateFrameStart: 0
+animateFrameEnd: 17
+animateFramePingPong: false
+animateFrameSpeed: 0.7
+
+[effect_Tiny_explode]
+life: 25
+attachedToUnit: true
+image: ROOT:\data\images\Tiny_explode.png 
+scaleFrom: 1.0
+scaleTo: 1.0
+total_frames: 6
+animateFrameStart: 0
+animateFrameEnd: 6
+animateFrameSpeed: 0.5
+fadeOut: false
+yOffsetRelative: 0
+xOffsetRelative: 0
+
+[effect_smokeTiny]
+spawnChance: 0.7
+xOffsetRelative: 1
+attachedToUnit: false
+life: 120
+alpha: 0.4
+scaleFrom: 0.3
+scaleTo: 1.1
+xSpeedRelativeRandom: 0.2
+ySpeedRelativeRandom: 0.2
+hSpeed: 0.1
+image: ROOT:\data\images\smoke.png
+priority: low
+drawUnderUnits:false
+atmospheric:true
+dirOffsetRandom: 340
+
+[effect_crater]
+priority:critical
+image: ROOT:data\images\crater.png
+createWhenOverLiquid: false
+life: 2500
+fadeOut: true
+scaleFrom: 1
+scaleTo: 1
+alpha: 1.5
+drawUnderUnits:true
+dirOffsetRandom: 180
+
+[effect_scorchmark]
+@copyFromSection:effect_crater
+scaleFrom: 0.4
+scaleTo: 0.4
+alpha: 1.5

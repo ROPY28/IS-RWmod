@@ -1,0 +1,62 @@
+
+#Custom effects
+
+[effect_lvlUp]
+alpha: 2
+attachedToUnit: true
+life: 40
+scaleFrom:0.8
+scaleTo: 1.3
+image: ROOT:\data\images\lvlUp.png
+priority: high
+drawUnderUnits:false
+dirSpeed:4
+alsoPlaySound:ROOT:\data\sfx\sounds\lvlUp.ogg:0.30
+
+[effect_dust]
+createWhenOffscreen: false
+createWhenZoomedOut: false
+attachedToUnit: false
+life: 170
+alpha: 1.2
+scaleFrom: 1
+scaleTo: 2.4
+dirOffsetRandom: 360
+dirSpeed: 2
+xSpeedRelativeRandom: 0.1
+ySpeedRelativeRandom: 0.1
+hSpeed: 0.01
+image: ROOT:\data\images\dust.png
+priority: critical
+drawUnderUnits:false
+atmospheric: true
+xOffsetAbsoluteRandom: 15
+yOffsetAbsoluteRandom: 15
+
+[effect_smoke]
+xOffsetRelative: 0
+yOffsetRelative:-16
+attachedToUnit: false
+life: 120
+alpha: 0.4
+scaleFrom: 0.3
+scaleTo: 1.5
+xSpeedRelativeRandom: 0.1
+ySpeedRelativeRandom: 0.1
+hSpeed: 0.1
+image: ROOT:\data\images\smoke.png
+priority: low
+drawUnderUnits:false
+atmospheric:true
+
+[effect_water]
+attachedToUnit: false
+life: 55
+physics: true
+scaleFrom: 1.7
+scaleTo: 0.3
+xSpeedRelativeRandom: 1.2
+ySpeedRelativeRandom: 1.2
+hSpeed: 1
+image: ROOT:\data\images\water.png
+drawUnderUnits:false

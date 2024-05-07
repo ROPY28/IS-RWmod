@@ -1,0 +1,126 @@
+[core]
+strictLevel: 1
+reclaimPrice: ${core.price}
+#resourceRate:1
+
+
+[hiddenAction_Victoria]
+autoTrigger: if self.resource.VP>=self.resource.limVP and   self.resource.VP>=1
+temporarilyAddTags: Winner
+[hiddenAction_lose]
+autoTrigger: if numberOfUnitsInEnemyTeam(withTag='Winner', greaterThan=0)
+requireConditional: if self.globalTeamTags(includes='USSR') or self.globalTeamTags(includes='Reich') 
+addResources:hp=-999999
+
+[graphics]
+showHealthBar: false
+showEnergyBar: false
+showShotDelayBar:false
+#===Resourse===#
+
+[global_resource_Rc]
+displayNameShort:Sp
+displayName: 
+hidden:false
+priority: 1
+displayColor:#ffcb9851
+iconImage: ROOT:/data/images/Rc4.png
+[global_resource_Raw]
+displayName: Raw
+hidden:false
+priority: 10
+displayColor:#ffcdc6b3
+
+[global_resource_L]
+displayName: 
+hidden:false
+priority: 3
+displayColor:#ff2b7dbe
+
+[global_resource_Lt]
+displayName:
+hidden:false
+priority: 4
+displayColor:#ff2b9dbe
+
+
+
+[global_resource_VP]
+displayName: Victory points
+displayName_ru: Очки победы
+displayColor: #009BDE
+hidden: false
+displayRoundedDown:true
+displayTextAppendResource: limVP
+
+[global_resource_limVP]
+displayName: 
+displayNameShort: 
+displayColor: #A2A2A2
+displayTextPrefix:/
+hidden: true
+#displayRoundedDown:true
+displayTextAppendResource: enemyVP
+
+
+[global_resource_enemyVP]
+displayName: | Enemy points
+displayName_ru: | Очки врага
+displayNameShort:
+displayColor: #DE2C00
+hidden: true
+displayRoundedDown:true
+#displayTextAppendResource: limVP
+#displayTextPrefix: \
+
+
+
+#===Status===#
+
+[resource_help]
+displayName: Костыльный рес
+displayRoundedDown: true
+hidden:true
+
+[resource_daze]
+displayName: Daze
+displayRoundedDown:true
+
+
+[resource_poison]
+displayName: poison!
+displayRoundedDown:true
+
+[hiddenAction_dazeMax]
+autoTrigger: if self.resource(type='daze', greaterThan=5) and self.tags(includes='isInfantry')
+resourceAmount: daze
+resourceAmount_setValue:5
+
+[hiddenAction_dazedUnit]
+autoTrigger: if self.resource(type='daze', greaterThan=0) and self.tags(includes='isInfantry')
+addWaypoint_type:move
+addWaypoint_position_randomOffsetFromSelf: 50,50
+addWaypoint_prepend:true
+addResources: daze=-1
+spawnEffects: CUSTOM:daze2
+
+[effect_daze2]
+attachedToUnit: true
+life: 150
+alpha: 1
+hOffset:2
+xOffsetRelativeRandom: 2
+yOffsetRelativeRandom: 2
+hSpeed: 0.05
+dirSpeed:2
+dirSpeedRandom: 2
+dirOffsetRandom: 360
+fadeInTime:10
+image: ROOT:\data\images\daze2.png
+priority: high
+drawUnderUnits:false
+scaleFrom:0.8
+scaleTo: 0.4
+
+
+

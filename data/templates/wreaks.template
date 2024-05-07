@@ -1,0 +1,115 @@
+
+[effect_deathSmoke]
+life: 90
+fadeInTime: 10
+priority: high
+attachedToUnit: false
+atmospheric: true
+image: ROOT:/data/images/blackSmoke.png
+ySpeedAbsolute: 0.05
+xSpeedAbsolute: 0.05
+ySpeedAbsoluteRandom: 0.1
+xSpeedAbsoluteRandom: 0.1
+dirSpeedRandom: -0.5
+dirSpeedRandom: 1
+alpha: 1
+scaleFrom: 0
+scaleTo: 1.5
+
+[effect_deathExplosion]
+life: 60
+priority: high
+
+xOffsetRelative: 0
+yOffsetRelative: 0
+dirOffset: 0
+dirOffsetRandom: 180
+dirSpeedRandom: 1
+
+fadeInTime: 0
+fadeOut: true
+
+attachedToUnit: false
+
+scaleFrom: 1.6
+scaleTo: 1.1
+
+image: ROOT:/data/images/explode_big.png
+total_frames: 14
+animateFrameStart: 0
+animateFrameEnd: 13
+animateFramePingPong: false
+animateFrameSpeed: 0.13
+animateFrameSpeedRandom: 0.1
+
+alpha: 1.1
+
+[effect_deathLight]
+life: 8
+image: ROOT:/data/images/light.png
+color:#ffff9500 
+alpha: 1
+fadeOut: true
+scaleFrom: 0
+scaleTo: 3
+
+[effect_deathLight2]
+life: 70
+image: ROOT:/data/images/light.png
+color:#ffff9500
+fadeInTime: 7.5
+alpha: 1.75
+fadeOut: true
+scaleFrom: 1
+scaleTo: 1
+
+#---wreaks---#
+
+[effect_smokeW]
+createWhenZoomedOut: false
+stripIndex: effects
+frameIndex: 0
+life: 210
+fadeOut: true
+attachedToUnit: false
+color: black 
+fadeInTime: 15
+scaleFrom: 0.55
+scaleTo: 2
+alpha: 0.75
+drawUnderUnits:false
+hSpeed:0.4
+xSpeedAbsolute: -0.2
+hOffsetRandom:0.15
+yOffsetRelative: -2
+atmospheric:true
+dirOffsetRandom:180
+shadow:true
+xOffsetRelativeRandom: 1
+yOffsetRelativeRandom: 1
+xSpeedAbsoluteRandom:0.05
+ySpeedAbsoluteRandom:0.1
+
+[effect_flamesW]
+fadeInTime: 30
+createWhenOffscreen: false
+createWhenZoomedOut: false
+alsoEmitEffects: CUSTOM:flamesW
+alwayStartDirAtZero: true
+life: 90
+priority: high
+hOffset: 0
+hSpeed: 0.2
+fadeOut: true
+alpha: 1
+frameIndex: 3
+stripIndex: projectiles
+scaleFrom: 1.2
+scaleTo: 0.6
+attachedToUnit: true
+atmospheric: true
+xOffsetRelativeRandom: 7
+yOffsetRelativeRandom: 10
+
+
+

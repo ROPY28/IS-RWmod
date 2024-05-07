@@ -1,0 +1,3 @@
+
+[core]
+copyFrom:ROOT:data\templates\blood.template, ROOT:data\templates\wreaks.template, ROOT:data\templates\trailsFire.template, ROOT:data\templates\explosions.template, ROOT:data\templates\motion.template, ROOT:data\templates\custom.template

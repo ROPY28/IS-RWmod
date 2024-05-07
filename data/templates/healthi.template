@@ -1,0 +1,61 @@
+[core]
+@global HealthChunks:200
+
+[graphics]
+showHealthBar: false
+showEnergyBar: false
+
+[template_health]
+yOffsetAbsolute: ${core.radius}+5
+alwaysStartDirAtZero: true
+layer: beforeUI
+
+[decal_healthbar]
+@copyFromSection: template_health
+order: 2
+image: ROOT:ui\df.png
+imageScale:  0.4
+imageScaleX:1
+imageScaleY:1.4
+
+
+[decal_healthfront]
+@copyFromSection: template_health
+order: 5
+image: ROOT:ui\dd.png
+imageScale:  0.4
+imageScaleX:1
+imageScaleY:1.4
+
+
+[decal_healthfrontneu]
+isVisible: if self.teamId(lessThan=0) or self.teamId(lessThan=6,greaterThan=4)
+@copyFromSection: template_health
+order: 2
+image: ROOT:ui\neu.png
+imageScale:  0.4
+imageScaleX:1
+imageScaleY:1.4
+
+[decal_pipfull]
+@copyFromSection: template_health
+order: 3
+image: ROOT:ui\hpp.png
+teamColors: true
+xOffsetAbsolute: -9*(1-self.hp()/self.maxHp())
+imageScaleX: self.hp()/self.maxHp()*30
+imageScale:0.6
+imageScaleY:1.4
+
+
+
+[template_healthpips]
+@define maxPips: 10
+order: 1
+image: ROOT:\Assets\Images\health.pips.png
+alwaysStartDirAtZero: true
+yOffsetAbsolute: ${core.radius}
+xOffsetAbsolute: ${-9.25+(hp*2)}
+imageScaleX: 2
+isVisible: if not self.hp(full=true)
+alpha: min(1,max(0,(self.hp()-${(core.maxHp/maxPips)*hp}) / ${core.maxHp/maxPips}))

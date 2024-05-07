@@ -1,0 +1,12 @@
+
+[placementRule_Add]
+anyRuleInGroup: place
+searchTags: add
+searchDistance: 40
+excludeIncompleteBuildings: true
+excludeNonBuildings: true
+minCount: 1
+blocksPlacement: true
+cannotPlaceMessage: Build next to the barracks!
+checkEachTile: false
+searchTeam: ally

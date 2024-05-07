@@ -1,0 +1,173 @@
+[core]
+@global HealthChunks: 330
+
+
+[graphics]
+showHealthBar: false
+showEnergyBar: false
+
+
+[template_health]
+yOffsetAbsolute: ${core.radius}+5
+alwaysStartDirAtZero: true
+layer: beforeUI
+
+[decal_healthbar]
+@copyFromSection: template_health
+order: 2
+image: ROOT:ui\df.png
+imageScale:  0.7
+imageScaleX:0.8
+
+
+[decal_healthfront]
+@copyFromSection: template_health
+order: 5
+image: ROOT:ui\dd.png
+imageScale:  0.7
+imageScaleX:0.8
+
+
+[decal_healthfrontneu]
+isVisible: if self.teamId(lessThan=0) or self.teamId(lessThan=6,greaterThan=4)
+@copyFromSection: template_health
+order: 2
+image: ROOT:ui\neu.png
+imageScale:  0.7
+imageScaleX:0.8
+
+
+[decal_pipfull]
+@copyFromSection: template_health
+order: 3
+image: ROOT:ui\hpp.png
+teamColors: true
+xOffsetAbsolute: -12.5*(1-self.hp()/self.maxHp())
+imageScaleX: self.hp()/self.maxHp()*25
+
+
+
+[template_healthline]
+@copyFromSection: template_health
+order: 4
+image: ROOT:ui\health.line.png
+imageScale: 0.5
+isVisible: if self.maxHp() > ${HealthChunks*Nr}
+xOffsetAbsolute: 52/self.maxHp()*${HealthChunks*Nr/2}-13
+imageScaleX:2
+[decal_healthline_1]
+@copyFromSection: template_healthline
+@define Nr: 1
+
+[decal_healthline_2]
+@copyFromSection: template_healthline
+@define Nr: 2
+
+[decal_healthline_3]
+@copyFromSection: template_healthline
+@define Nr: 3
+
+[decal_healthline_4]
+@copyFromSection: template_healthline
+@define Nr: 4
+
+[decal_healthline_5]
+@copyFromSection: template_healthline
+@define Nr: 5
+
+[decal_healthline_6]
+@copyFromSection: template_healthline
+@define Nr: 6
+
+[decal_healthline_7]
+@copyFromSection: template_healthline
+@define Nr: 7
+
+[decal_healthline_8]
+@copyFromSection: template_healthline
+@define Nr: 8
+
+[decal_healthline_9]
+@copyFromSection: template_healthline
+@define Nr: 9
+
+[decal_healthline_10]
+@copyFromSection: template_healthline
+@define Nr: 10
+
+[decal_healthline_11]
+@copyFromSection: template_healthline
+@define Nr: 11
+
+[decal_healthline_12]
+@copyFromSection: template_healthline
+@define Nr: 12
+
+[decal_healthline_13]
+@copyFromSection: template_healthline
+@define Nr: 13
+
+[decal_healthline_14]
+@copyFromSection: template_healthline
+@define Nr: 14
+
+[decal_healthline_15]
+@copyFromSection: template_healthline
+@define Nr: 15
+
+[decal_healthline_16]
+@copyFromSection: template_healthline
+@define Nr: 16
+
+[decal_healthline_17]
+@copyFromSection: template_healthline
+@define Nr: 17
+
+[decal_healthline_18]
+@copyFromSection: template_healthline
+@define Nr: 18
+
+[decal_healthline_19]
+@copyFromSection: template_healthline
+@define Nr: 19
+
+[decal_healthline_20]
+@copyFromSection: template_healthline
+@define Nr: 20
+
+[decal_healthline_21]
+@copyFromSection: template_healthline
+@define Nr: 21
+
+[decal_healthline_22]
+@copyFromSection: template_healthline
+@define Nr: 22
+
+[decal_healthline_23]
+@copyFromSection: template_healthline
+@define Nr: 23
+
+[decal_healthline_24]
+@copyFromSection: template_healthline
+@define Nr: 24
+
+[decal_healthline_25]
+@copyFromSection: template_healthline
+@define Nr: 25
+
+[decal_healthline_26]
+@copyFromSection: template_healthline
+@define Nr: 26
+
+[decal_healthline_27]
+@copyFromSection: template_healthline
+@define Nr: 27
+
+[decal_healthline_28]
+@copyFromSection: template_healthline
+@define Nr: 28
+
+[decal_healthline_29]
+@copyFromSection: template_healthline
+@define Nr: 29
+
