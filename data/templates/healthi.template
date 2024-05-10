@@ -1,6 +1,6 @@
 [core]
 @global HealthChunks:200
-
+@global SI: ROOT:common\special\Spawner.png
 [graphics]
 showHealthBar: false
 showEnergyBar: false
@@ -59,3 +59,11 @@ xOffsetAbsolute: ${-9.25+(hp*2)}
 imageScaleX: 2
 isVisible: if not self.hp(full=true)
 alpha: min(1,max(0,(self.hp()-${(core.maxHp/maxPips)*hp}) / ${core.maxHp/maxPips}))
+
+[decal_SqadIcon]
+layer: afterBody
+image: ${SI}
+teamColors:true
+alwaysStartDirAtZero: true
+yOffsetAbsolute: ${-core.radius}-5
+onlyWhileAlive:true
