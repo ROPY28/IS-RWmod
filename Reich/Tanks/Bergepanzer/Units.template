@@ -3,7 +3,7 @@
 
 [canBuild_T1]
 isVisible: if self.tags(includes='T1')
-name: isVK16.02,isScorpion,isFalke
+name: isVK16.02,isScorpion
 
 forceNano: true
 pos: 1.1
