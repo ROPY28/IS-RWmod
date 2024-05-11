@@ -3,7 +3,7 @@
 
 [canBuild_T1]
 isVisible: if self.tags(includes='T1')
-name: isT-80,isT-34C,isLi-2
+name: isT-80,isT-34C
 forceNano: true
 pos: 1.1
 
