@@ -87,18 +87,33 @@ hidden:true
 displayName: Daze
 displayRoundedDown:true
 
+[resource_shock]
+displayName: shock
+displayRoundedDown:true
+
 
 [resource_poison]
 displayName: poison!
 displayRoundedDown:true
 
 [hiddenAction_dazeMax]
-autoTrigger: if self.resource(type='daze', greaterThan=5) and self.tags(includes='isInfantry')
+autoTrigger: if self.resource(type='daze', greaterThan=5)
 resourceAmount: daze
-resourceAmount_setValue:5
+resourceAmount_setValue:0
+addActionCooldownTime: 5s
+alsoTriggerAction:shockCostil
+
+[hiddenAction_shockCostil]
+buildSpeed:3s
+alsoTriggerAction:shock
+[hiddenAction_shock]
+requireConditional: if self.resource(type='daze', greaterThan=3) and not self.tags(includes='down')
+
+addActionCooldownTime: 5s
+addResources: shock=1
 
 [hiddenAction_dazedUnit]
-autoTrigger: if self.resource(type='daze', greaterThan=0) and self.tags(includes='isInfantry')
+autoTrigger: if self.resource(type='daze', greaterThan=0) and not self.tags(includes='Heavy')
 addWaypoint_type:move
 addWaypoint_position_randomOffsetFromSelf: 50,50
 addWaypoint_prepend:true
