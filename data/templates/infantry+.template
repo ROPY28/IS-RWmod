@@ -1,0 +1,51 @@
+############Status############
+
+############Daze############
+
+[hiddenAction_dazeMax]
+autoTrigger: if self.resource(type='daze', greaterThan=5)
+resourceAmount: daze
+resourceAmount_setValue:0
+addActionCooldownTime: 5s
+alsoTriggerAction:shockCostil
+
+[hiddenAction_shockCostil]
+buildSpeed:3s
+alsoTriggerAction:shock
+[hiddenAction_shock]
+requireConditional: if self.resource(type='daze', greaterThan=3) and not self.tags(includes='down')
+
+addActionCooldownTime: 5s
+addResources: shock=1
+
+[hiddenAction_dazedUnit]
+autoTrigger: if self.resource(type='daze', greaterThan=0) and not self.tags(includes='noDaze')
+addWaypoint_type:move
+addWaypoint_position_randomOffsetFromSelf: 30,30
+addWaypoint_prepend:true
+addResources: daze=-1
+
+[hiddenAction_effect_daze2]
+autoTrigger: if (self.resource(type='daze', greaterThan=0) and not self.tags(includes='noDaze')) or (self.resource(type='daze', greaterThan=0) and  self.hasParent(withTag='isNest'))
+spawnEffects: CUSTOM:daze2
+
+[effect_daze2]
+attachedToUnit: true
+life: 150
+alpha: 1
+hOffset:2
+xOffsetRelativeRandom: 2
+yOffsetRelativeRandom: 2
+hSpeed: 0.05
+dirSpeed:2
+dirSpeedRandom: 2
+dirOffsetRandom: 360
+fadeInTime:10
+image: ROOT:\data\images\daze2.png
+priority: high
+drawUnderUnits:false
+scaleFrom:0.8
+scaleTo: 0.4
+
+[turret_1]
+canAttackCondition:if not (self.resource(type='daze', greaterThan=0) and self.hasParent(withTag='isNest'))
