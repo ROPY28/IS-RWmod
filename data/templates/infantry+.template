@@ -25,7 +25,12 @@ addWaypoint_position_randomOffsetFromSelf: 30,30
 addWaypoint_prepend:true
 addResources: daze=-1
 
-[hiddenAction_effect_daze2]
+
+[hiddenAction_dazedUnitNoDaze]
+autoTrigger: if self.resource(type='daze', greaterThan=0) and self.tags(includes='noDaze')
+addResources: daze=-0.2
+
+[hiddenAction_daze2]
 autoTrigger: if (self.resource(type='daze', greaterThan=0) and not self.tags(includes='noDaze')) or (self.resource(type='daze', greaterThan=0) and  self.hasParent(withTag='isNest'))
 spawnEffects: CUSTOM:daze2
 
