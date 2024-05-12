@@ -50,8 +50,8 @@ spawnUnit: isGrenade
 
 friendlyFire: true
 deflectionPower: -1
-areaDamage: 0
-
+areaDamage: 5
+armourIgnoreAmount: 12
 areaRadius: 5
 trailEffect:false
 
