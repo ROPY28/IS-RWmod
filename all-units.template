@@ -95,41 +95,14 @@ hidden:true
 displayName: Daze
 displayRoundedDown:true
 
+[resource_shock]
+displayName: shock
+displayRoundedDown:true
+
 
 [resource_poison]
 displayName: poison!
 displayRoundedDown:true
-
-[hiddenAction_dazeMax]
-autoTrigger: if self.resource(type='daze', greaterThan=5) and self.tags(includes='isInfantry')
-resourceAmount: daze
-resourceAmount_setValue:5
-
-[hiddenAction_dazedUnit]
-autoTrigger: if self.resource(type='daze', greaterThan=0) and self.tags(includes='isInfantry')
-addWaypoint_type:move
-addWaypoint_position_randomOffsetFromSelf: 50,50
-addWaypoint_prepend:true
-addResources: daze=-1
-spawnEffects: CUSTOM:daze2
-
-[effect_daze2]
-attachedToUnit: true
-life: 150
-alpha: 1
-hOffset:2
-xOffsetRelativeRandom: 2
-yOffsetRelativeRandom: 2
-hSpeed: 0.05
-dirSpeed:2
-dirSpeedRandom: 2
-dirOffsetRandom: 360
-fadeInTime:10
-image: ROOT:\data\images\daze2.png
-priority: high
-drawUnderUnits:false
-scaleFrom:0.8
-scaleTo: 0.4
 
 
 
