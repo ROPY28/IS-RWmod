@@ -20,29 +20,37 @@ showTransportBar: false
 #===Resourse===#
 
 [global_resource_rc]
-displayNameShort:Sp
+displayNameShort:Supply
 displayName: 
+displayPos:11
 hidden:false
-priority: 1
+priority: 11
 displayColor:#ffcb9851
 iconImage: ROOT:/data/images/Rc4.png
 [global_resource_Raw]
-displayName: Raw
+displayName: 
+displayNameShort: Raw
+displayPos:10
 hidden:false
 priority: 10
 displayColor:#ffcdc6b3
+iconImage: ROOT:/data/images/raw.png
 
 [global_resource_L]
-displayName: Infantry limit
+displayName: 
+displayNameShort: limit
 hidden:false
 priority: 3
 displayColor:#ff2b7dbe
+iconImage: ROOT:/data/images/L.png
 
 [global_resource_Lt]
-displayName: Techno limit
+displayName: 
+displayNameShort:  limit
 hidden:false
 priority: 4
 displayColor:#ff2b9dbe
+iconImage: ROOT:/data/images/LT.png
 
 
 
