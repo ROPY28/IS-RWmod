@@ -1,8 +1,8 @@
 [core]
 strictLevel: 1
 reclaimPrice: ${core.price}
-#resourceRate:1
-
+@memory heatcoef:number
+@memory heatdeccoef:number
 
 [hiddenAction_Victoria]
 autoTrigger: if self.resource.VP>=self.resource.limVP and   self.resource.VP>=1
@@ -92,17 +92,39 @@ displayRoundedDown: true
 hidden:true
 
 [resource_daze]
-displayName: Daze
+displayName: DAZE
 displayRoundedDown:true
 
 [resource_shock]
-displayName: shock
+displayName: SHOCK!
 displayRoundedDown:true
 
+[resource_heat]
+displayName: HEAT
+displayRoundedDown:true
 
 [resource_poison]
-displayName: poison!
+displayName: POISON
 displayRoundedDown:true
 
+#===Buff-Debuff===#
 
+[hiddenAction_HEAT_Max]
+autoTrigger: if self.resource(type='heat', greaterThan=15)
+resourceAmount: heat
+resourceAmount_setValue:5
+addResourcesWithLogic:hp=-10*memory.heatcoef
 
+[hiddenAction_HEAT_vehicles]
+autoTriggerOnEvent: created
+requireConditional: if self.tags(includes='Vehicles')	
+setUnitMemory: heatcoef = 15, heatdeccoef = 3
+
+[hiddenAction_HEAT_building]
+autoTriggerOnEvent: created
+requireConditional: if self.tags(includes='building')	
+setUnitMemory: heatcoef = 0, heatdeccoef = 2
+
+[hiddenAction_HEATED]
+autoTrigger: if self.resource.heat >= 0+memory.heatdeccoef
+addResourcesWithLogic: heat=-1*memory.heatdeccoef, hp=-5*memory.heatcoef
