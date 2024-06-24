@@ -43,3 +43,24 @@ scaleTo: 0.4
 
 [turret_1]
 canAttackCondition:if not (self.resource(type='daze', greaterThan=0) and self.hasParent(withTag='isNest'))
+
+############Heat############
+[hiddenAction_HEAT_protect]
+autoTrigger: if self.hasParent(withTag='isNest')
+temporarilyAddTags:noHEAT
+
+[hiddenAction_HEAT_noProtect]
+autoTrigger: if not self.hasParent(withTag='isNest')
+temporarilyRemoveTags:noHEAT
+
+[hiddenAction_HEAT]
+autoTrigger: if self.hasParent(withTag='isNest')
+setUnitMemory: heatcoef = 1
+
+[hiddenAction_noHEAT]
+autoTrigger: if  not self.hasParent(withTag='isNest')
+setUnitMemory: heatcoef = 0
+
+[hiddenAction_HEAT_on]
+autoTrigger: if self.hasParent(withTag='onHeat')
+addResources: heat=1
