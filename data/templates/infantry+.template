@@ -1,0 +1,66 @@
+############Status############
+
+############Daze############
+
+[hiddenAction_dazeMax]
+autoTrigger: if self.resource(type='daze', greaterThan=10)
+resourceAmount: daze
+resourceAmount_setValue:2
+
+[hiddenAction_dazedUnit]
+autoTrigger: if self.resource(type='daze', greaterThan=0) and not self.tags(includes='noDaze')
+addWaypoint_type:move
+addWaypoint_position_randomOffsetFromSelf: 30,30
+addWaypoint_prepend:true
+addResources: daze=-1
+
+
+[hiddenAction_dazedUnitNoDaze]
+autoTrigger: if self.resource(type='daze', greaterThan=0) and self.tags(includes='noDaze')
+addResources: daze=-0.2
+
+[hiddenAction_daze2]
+autoTrigger: if (self.resource(type='daze', greaterThan=0) and not self.tags(includes='noDaze')) or (self.resource(type='daze', greaterThan=0) and  self.hasParent(withTag='isNest'))
+spawnEffects: CUSTOM:daze2
+
+[effect_daze2]
+attachedToUnit: true
+life: 150
+alpha: 1
+hOffset:2
+xOffsetRelativeRandom: 2
+yOffsetRelativeRandom: 2
+hSpeed: 0.05
+dirSpeed:2
+dirSpeedRandom: 2
+dirOffsetRandom: 360
+fadeInTime:10
+image: ROOT:\data\images\daze2.png
+priority: high
+drawUnderUnits:false
+scaleFrom:0.8
+scaleTo: 0.4
+
+[turret_1]
+canAttackCondition:if not (self.resource(type='daze', greaterThan=0) and self.hasParent(withTag='isNest'))
+
+############Heat############
+[hiddenAction_HEAT_protect]
+autoTrigger: if self.hasParent(withTag='isNest')
+temporarilyAddTags:noHEAT
+
+[hiddenAction_HEAT_noProtect]
+autoTrigger: if not self.hasParent(withTag='isNest')
+temporarilyRemoveTags:noHEAT
+
+[hiddenAction_HEAT]
+autoTrigger: if self.hasParent(withTag='isNest')
+setUnitMemory: heatcoef = 1
+
+[hiddenAction_noHEAT]
+autoTrigger: if  not self.hasParent(withTag='isNest')
+setUnitMemory: heatcoef = 0
+
+[hiddenAction_HEAT_on]
+autoTrigger: if self.hasParent(withTag='onHeat')
+addResources: heat=1
