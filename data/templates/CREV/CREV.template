@@ -1,0 +1,142 @@
+[core]
+@global unitSlot1: isEmptySlot
+@global unitSlot2: isEmptySlot
+@memory unitSlot1: unit
+@memory unitSlot2: unit
+@memory slowdown: number
+@memory enabled1: boolean
+@memory enabled2: boolean
+@memory internal: unit[]
+
+
+#========Cosmetic========#
+
+[arm_1]
+x: 0
+y:6
+image_end: ROOT:data\templates\CREV\base.png
+image_end_teamColors: true
+drawOverBody: true
+spinRate: 1.2
+
+[decal_nano]
+image:ROOT:data\templates\CREV\decalNano.png
+basePositionFromLegEnd: arm_1
+alpha:0.7
+
+[hiddenAction_undratk]
+autoTriggerOnEvent: tookDamage
+playSoundToPlayer:ROOT:/data/sfx/sounds/attacked.wav
+requireConditional: if self.customTimer(laterThanSeconds=5)
+resetCustomTimer: true
+
+#========Modular========#
+[hiddenAction_slowdown]
+autoTriggerOnEvent: newMessage(withTag="slowdown")
+setUnitMemory: slowdown = memory.slowdown + eventData(name="amount",type="number")
+alsoQueueAction:slowdownSet
+buildSpeed: 0s
+[hiddenAction_slowdownSet]
+setUnitStats: moveSpeed = ${movement.moveSpeed}-memory.slowdown
+buildSpeed: 0s
+
+
+
+[action_selectSlot1]
+@define slotId: 1
+isVisible:if not memory.enabled1 == true
+buildSpeed: 0s
+text: [
+textAddUnitName: unitRef self.attachment(slot="unitSlot${slotId}")
+textPostFix: ]
+descriptionAddFromUnit: unitRef self.attachment(slot="unitSlot${slotId}")
+descriptionAddUnitStats: unitRef self.attachment(slot="unitSlot${slotId}")
+addResources: unsetFlag=1-10, setFlag=${slotId}
+setUnitMemory: enabled1 = true
+isGuiBlinking: false
+displayType: action
+iconExtraIsVisible: if self.hasFlag(id=${slotId})
+pos: 0.5
+canPlayerCancel: false
+allowMultipleInQueue: false
+alwaysSinglePress: true
+extraLagHidingInUI: true
+
+
+[action_selectSlot2]
+@copyFromSection: action_selectSlot1
+@define slotId: 2
+pos: 0.51
+isVisible:if not memory.enabled2 == true
+setUnitMemory: enabled2 = true
+text: [
+textAddUnitName: unitRef self.attachment(slot="unitSlot${slotId}")
+textPostFix: 2 ]
+
+[action_deselectSlot1]
+@copyFromSection: action_selectSlot1
+isGuiBlinking: true
+isVisible:if memory.enabled1 == true
+setUnitMemory: enabled1 = false
+
+[action_deselectSlot2]
+@copyFromSection: action_selectSlot2
+@define slotId: 2
+isGuiBlinking: true
+isVisible:if memory.enabled2 == true
+setUnitMemory: enabled2 = false
+text: [
+textAddUnitName: unitRef self.attachment(slot="unitSlot${slotId}")
+textPostFix: 2 ]
+
+[attachment_unitSlot1]
+x: -11
+y: -5
+idleDir: 6
+onCreateSpawnUnitOf: isEmptySlot
+addTransportedUnits: true
+setDrawLayerOnTop: true
+lockLegMovement:false
+
+canBeAttackedAndDamaged: false
+isUnselectable: true
+
+showAllActionsFrom: if memory.enabled1 == true
+lockRotation: true
+
+createIncompleteIfParentIs: false
+redirectDamageToParent: true
+redirectDamageToParent_shieldOnly: true
+
+
+[attachment_unitSlot2]
+@copyFromSection: attachment_unitSlot1
+showAllActionsFrom: if memory.enabled2 == true
+x: 11
+y: -5
+
+[canBuild_USSR1]
+isVisible: if self.globalTeamTags(includes='T2Engi')
+isLocked: if self.isControlledByAI
+name: isNest,isMine,isWall,reclaim
+forceNano: true
+
+[canBuild_USSR2]
+isVisible: if self.isControlledByAI 
+isLocked: if not self.globalTeamTags(includes='T2Engi')
+name: isNestAI,isMine,isWall,reclaim
+forceNano: true
+
+#========Internal-Modular========#
+
+
+
+
+
+
+
+
+
+
+
+

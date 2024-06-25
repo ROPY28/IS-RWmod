@@ -15,7 +15,7 @@ Mod creator: Valya (Змейка)
 
 Reference: Some sprite effects were taken from Sushimaki
 
-minVersion:1.15p9
+minVersion:1.15p11
 
 ---Заметка---
 #4a000000 -Черный цвет

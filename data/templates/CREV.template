@@ -1,6 +1,0 @@
-[hiddenAction_undratk]
-autoTriggerOnEvent: tookDamage
-playSoundToPlayer:ROOT:/data/sfx/sounds/attacked.wav
-requireConditional: if self.customTimer(laterThanSeconds=5)
-resetCustomTimer: true
-

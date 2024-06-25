@@ -1,6 +1,22 @@
-[core]
-#@global lazEnergy: number 
-#@global lazEnergy: self.attachment(slot='unitSlot1').energy
+[core]	
+defineUnitMemory: number lazEnergy
+
+[hiddenAction_lazEnergy]
+autoTrigger: if self.numberOfUnitsInTeam(withTag='lazdef') == 2
+setUnitMemory:lazEnergy=(14.7/self.attachment(slot='unitslot1').maxEnergy*self.attachment(slot='unitslot1').energy)+(14.7 /self.attachment(slot='unitslot2').maxEnergy*self.attachment(slot='unitslot2').energy)
+
+
+[hiddenAction_lazEnergy1]
+autoTrigger: if self.numberOfUnitsInTeam(withTag='lazdef') == 1
+requireConditional: if self.attachment(slot='unitslot1').tags(includes='lazdef')
+setUnitMemory:lazEnergy=30/self.attachment(slot='unitslot1').maxEnergy*self.attachment(slot='unitslot1').energy
+
+
+[hiddenAction_lazEnergy2]
+autoTrigger: if self.numberOfUnitsInTeam(withTag='lazdef') == 1
+requireConditional: if self.attachment(slot='unitslot2').tags(includes='lazdef')
+setUnitMemory:lazEnergy=30/self.attachment(slot='unitslot2').maxEnergy*self.attachment(slot='unitslot2').energy
+
 
 [template_healthe]
 yOffsetAbsolute: ${core.radius}+10
@@ -27,19 +43,19 @@ imageScaleY:1.4
 [decal_pipfulle]
 @copyFromSection: template_healthe
 image: ROOT:ui\laz.png
-imageScaleX: 30/self.attachment(slot='unitslot1').maxEnergy*self.attachment(slot='unitslot1').energy
+imageScaleX: memory.lazEnergy
 imageScale:0.6
 imageScaleY:1.4
-isVisible: if not self.attachment(slot='unitslot1').hasFlag(id=28)  and self.hasUnitInTeam(withTag='lazdef')
+isVisible: if not (self.attachment(slot='unitslot1').hasFlag(id=28) or self.attachment(slot='unitslot2').hasFlag(id=28)) and self.hasUnitInTeam(withTag='lazdef') 
 
 
 [decal_piprech]
 @copyFromSection: template_healthe
 image: ROOT:ui\rch.png
-imageScaleX: 30/self.attachment(slot='unitslot1').maxEnergy*self.attachment(slot='unitslot1').energy
+imageScaleX: memory.lazEnergy
 imageScale:0.6
 imageScaleY:1.4
-isVisible: if self.attachment(slot='unitslot1').hasFlag(id=28)
+isVisible: if (self.attachment(slot='unitslot1').hasFlag(id=28) or self.attachment(slot='unitslot2').hasFlag(id=28)) and self.hasUnitInTeam(withTag='lazdef') 
 
 
 
