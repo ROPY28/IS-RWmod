@@ -1,6 +1,7 @@
 [core]
 strictLevel: 1
 reclaimPrice: ${core.price}
+fogOfWarSightRange:0
 @memory heatcoef:number
 @memory heatdeccoef:number
 
@@ -128,3 +129,51 @@ setUnitMemory: heatcoef = 0, heatdeccoef = 2
 [hiddenAction_HEATED]
 autoTrigger: if self.resource.heat >= 0+memory.heatdeccoef
 addResourcesWithLogic: heat=-1*memory.heatdeccoef, hp=-5*memory.heatcoef
+
+
+#===NSF===#
+[attack]
+canOnlyAttackUnitsWithoutTags:INVISIBLE
+[turret_VISIBLE]
+x: 0
+y: 0
+invisible:true
+canShoot:false
+projectile: VISIBLE
+
+[projectile_VISIBLE]
+life: 0
+instant:true
+targetGround:true
+areaDamage:0
+areaRadius:${core.fogOfWarSightRange*19}
+areaHitAirAndLandAtSameTime:true
+areaHitUnderwaterAlways:true
+areaDamageNoFalloff:true
+areaRadiusFromEdge:true
+mutator1_ifUnitWithoutTags:NONE
+mutator1_addResourcesAreaHit:VISIBLE=4
+explodeEffect:none
+
+[resource_VISIBLE]
+displayName:VISIBLE
+hidden:true
+
+[hiddenAction_VISIBLE]
+autoTrigger:if numberOfUnitsInEnemyTeam(withinRange=${core.fogOfWarSightRange*19}, greaterThan=0)
+fireTurretXAtGround: VISIBLE
+fireTurretXAtGround_withOffset: 0,0
+
+[hiddenAction_VISIBLEsetTag]
+autoTrigger:if self.resource(type='VISIBLE',lessThan=3)
+temporarilyAddTags:INVISIBLE
+
+[hiddenAction_VISIBLEunsetTag]
+autoTrigger:if self.resource(type='VISIBLE',greaterThan=2)
+addResources: VISIBLE=-3
+temporarilyRemoveTags:INVISIBLE
+
+[hiddenAction_VISIBLEdeleteResource]
+autoTrigger:if self.resource(type='VISIBLE',greaterThan=5)
+resourceAmount:VISIBLE
+resourceAmount_setValue: 4
