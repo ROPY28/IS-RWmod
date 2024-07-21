@@ -2,53 +2,23 @@
 #===Units===#
 
 [canBuild_T1]
-isVisible: if self.tags(includes='T1')
 name: isT-80,isT-34C
 forceNano: true
 pos: 1.1
-
+isLocked: if self.customTimer < 420
+isLockedMessage: Wait %{420 - self.customTimer} seconds
 [canBuild_Super]
-isVisible: if self.tags(includes='T2')
-name: isBehemoth
 
+name: isBehemoth
+isLocked: if self.customTimer < 1200
+isLockedMessage: Wait %{1200 - self.customTimer} seconds
 forceNano: true
 pos: 1.3
 
 [canBuild_artillery]
-isVisible: if self.tags(includes='T2')
 name: isСАУ-55
-
+isLocked: if self.customTimer < 420
+isLockedMessage: Wait %{420 - self.customTimer} seconds
 forceNano: true
 pos: 1.4
 
-[action_UpgradeTanks]
-displayType:upgrade
-isVisible: if not self.tags(includes='T1')
-text: Tech T1
-text_ru: Техника Т1
-description: -Upgrade \n -Unders access to light and medium tanks
-description_ru: -Улучшение \n -Открывает доступ к лёгким и средним танкам
-buildSpeed: 20s
-temporarilyAddTags: T1
-price: Rc=200,Raw=150
-pos: 2.0
-allowMultipleInQueue:false
-
-[action_UpgradeT2]
-displayType:upgrade
-isVisible: if not self.tags(includes='T2')
-text: Tech T2
-text_ru: Техника Т2
-description: -Upgrade \n -Unders access to advanced units
-description_ru: -Улучшение \n -Открывает доступ к продвинутым юнитам
-buildSpeed: 20s
-temporarilyAddTags: T2
-price: Rc=800,Raw=150
-pos: 2.1
-allowMultipleInQueue:false
-isLocked: if not self.hasUnitInTeam(withTag='Upgrade')
-isLockedMessage: Requires a medium tank to unblock!
-
-[hiddenAction_ai]
-autoTrigger:if self.isControlledbyAI()
-temporarilyAddTags:T1,T2

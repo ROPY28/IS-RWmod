@@ -1,0 +1,218 @@
+[core]
+@memory enabledU: boolean
+
+######Units######
+
+[action_selectU]
+text: Reinforcements
+isGuiBlinking: true
+isVisible:if memory.enabledU == false
+setUnitMemory: enabledU = true
+buildSpeed: 0s
+
+[action_deselectU]
+text: Reinforcements
+isGuiBlinking: true
+isVisible:if memory.enabledU == true
+setUnitMemory: enabledU = false
+buildSpeed: 0s
+
+[action_USSR_Rifles]
+isVisible:if self.globalTeamTags(includes='USSR') and memory.enabledU == true 
+text: Rifle sqad
+buildSpeed: 0s
+addActionCooldownTime: 30s
+price: Rc=100, L=7
+produceUnits: isRifleman*7
+description: -Recruitment \n -7 Riflemans
+iconImage: ROOT:/data/unitsIcons/soldier_Icon.png
+
+[action_USSR_Maxim]
+isVisible:if self.globalTeamTags(includes='USSR') and memory.enabledU == true 
+text: Maxim crew
+buildSpeed: 0s
+addActionCooldownTime: 180s
+price: Rc=210, L=3
+produceUnits:  isMaxim
+description: -Recruitment \n -Maxim machinegun crew
+iconImage: ROOT:/data/unitsIcons/turret_Icon.png
+
+[action_USSR_engi]
+isVisible:if self.globalTeamTags(includes='USSR') and memory.enabledU == true 
+text: Support sqad
+buildSpeed: 0s
+addActionCooldownTime: 60s
+price: Rc=100, L=6
+produceUnits: isTechieman*3
+description: -Recruitment \n -3 Techimans.
+iconImage: ROOT:/data/unitsIcons/engineer_Icon.png
+
+[action_USSR_rockets]
+isVisible:if self.globalTeamTags(includes='USSR') and memory.enabledU == true 
+text: Rocket sqad
+buildSpeed: 0s
+addActionCooldownTime: 200s
+price: Rc=100, L=6
+produceUnits: isRocketman*3
+description: -Recruitment \n -3 Rocketmans
+iconImage: ROOT:/data/unitsIcons/rocket_Icon.png
+
+
+[action_USSR_M41]
+isVisible:if self.globalTeamTags(includes='USSR') and memory.enabledU == true 
+text: M41 crew
+buildSpeed: 0s
+addActionCooldownTime: 100s
+price: Rc=170, Raw=40, L=3
+produceUnits: isM-41
+description: -Recruitment \n -Anti-tank cannon
+iconImage: ROOT:/data/unitsIcons/cannon_Icon.png
+
+
+[action_Wehrmacht_Rifles]
+isVisible:if self.globalTeamTags(includes='Reich') and memory.enabledU == true
+text: Rifle sqad
+buildSpeed: 0s
+addActionCooldownTime: 30s
+price: Rc=100, L=5
+produceUnits: isGunman*5
+description: -Recruitment \n -7 Riflemans
+iconImage: ROOT:/data/unitsIcons/soldier_Icon.png
+
+[action_Wehrmacht_Gunnerman]
+isVisible:if self.globalTeamTags(includes='Reich') and memory.enabledU == true
+text: MG42 crew
+buildSpeed: 0s
+addActionCooldownTime: 200s
+price: Rc=210, L=3
+produceUnits:  isGunnerman, isGunman
+description: -Recruitment \n -MG42 machinegun crew
+iconImage: ROOT:/data/unitsIcons/gunner_Icon.png
+
+[action_Wehrmacht_engi]
+isVisible:if self.globalTeamTags(includes='Reich') and memory.enabledU == true
+text: Support sqad
+buildSpeed: 0s
+addActionCooldownTime: 60s
+price: Rc=100, L=6
+produceUnits: isExpertman*3
+description: -Recruitment \n -3 Expertmans.
+iconImage: ROOT:/data/unitsIcons/engineer_Icon.png
+
+[action_Wehrmacht_rockets]
+isVisible:if self.globalTeamTags(includes='Reich') and memory.enabledU == true
+text: Demolition sqad
+buildSpeed: 0s
+addActionCooldownTime: 200s
+price: Rc=120, L=4
+produceUnits: isUberman*2
+description: -Recruitment \n -2 Ubermans
+iconImage: ROOT:/data/unitsIcons/bomber_Icon.png
+
+[action_Wehrmacht_Pak40]
+isVisible:if self.globalTeamTags(includes='Reich') and memory.enabledU == true
+text: Pak40 crew 
+buildSpeed: 0s
+addActionCooldownTime: 100s
+price: Rc=190, Raw=40, L=3
+produceUnits: isPak40 
+description: -Recruitment \n -Anti-tank cannon
+iconImage: ROOT:/data/unitsIcons/cannon_Icon.png
+
+[action_USSR_T-80]
+isVisible:if self.globalTeamTags(includes='USSR') and memory.enabledU == true and not self.tags(includes='fort')
+isLocked: if self.customTimer < 420
+isLockedMessage: Wait %{420 - self.customTimer} seconds
+text: T-80 
+addActionCooldownTime: 300s
+buildSpeed: 0s
+price:Rc=400, Raw=50,Lt=1 
+produceUnits: isT-80
+description: -Recruitment \n -Tank T-80 
+iconImage: ROOT:/data/unitsIcons/tank_Icon.png
+
+[action_USSR_T-34C]
+isVisible:if self.globalTeamTags(includes='USSR') and memory.enabledU == true and not self.tags(includes='fort')
+isLocked: if self.customTimer < 420
+isLockedMessage: Wait %{420 - self.customTimer} seconds
+text: T-34C 
+addActionCooldownTime: 300s
+buildSpeed: 0s
+price: Rc=700, Raw=120,Lt=2
+produceUnits: isT-34C
+description: -Recruitment \n -Tank T-34C
+iconImage: ROOT:/data/unitsIcons/tank_Icon.png
+
+[action_USSR_Behemoth]
+isVisible:if self.globalTeamTags(includes='USSR') and memory.enabledU == true and not self.tags(includes='fort')
+isLocked: if self.customTimer < 1200
+isLockedMessage: Wait %{1200 - self.customTimer} seconds
+text: Behemoth
+addActionCooldownTime: 300s
+buildSpeed: 0s
+price: Rc=1400, Raw=250,Lt=2
+produceUnits: isBehemoth
+description: -Recruitment \n -Tank Behemoth
+iconImage: ROOT:/data/unitsIcons/tank_Icon.png
+
+[action_USSR_САУ-55]
+isVisible:if self.globalTeamTags(includes='USSR') and memory.enabledU == true and not self.tags(includes='fort')
+isLocked: if self.customTimer < 420
+isLockedMessage: Wait %{420 - self.customTimer} seconds
+text: САУ-55 
+addActionCooldownTime: 300s
+buildSpeed: 0s
+price: Rc=1150, Raw=150,Lt=2
+produceUnits: isСАУ-55
+description: -Recruitment \n -САУ-55
+iconImage: ROOT:/data/unitsIcons/tank_Icon.png
+
+[action_Reich_VK16.02]
+isVisible:if self.globalTeamTags(includes='Reich') and memory.enabledU == true and not self.tags(includes='fort')
+isLocked: if self.customTimer < 420
+isLockedMessage: Wait %{420 - self.customTimer} seconds
+text: VK16.02 Leopard
+addActionCooldownTime: 300s
+buildSpeed: 0s
+price: Rc=400, Raw=50,Lt=1
+produceUnits: isVK16.02
+description: -Recruitment \n -VK16.02 Leopard light tank
+iconImage: ROOT:/data/unitsIcons/tank_Icon.png
+
+
+[action_Reich_Scorpion]
+isVisible:if self.globalTeamTags(includes='Reich') and memory.enabledU == true and not self.tags(includes='fort')
+isLocked: if self.customTimer < 420
+isLockedMessage: Wait %{420 - self.customTimer} seconds
+text: Pz.8 Scorpion
+addActionCooldownTime: 300s
+buildSpeed: 0s
+price: Rc=700, Raw=130,Lt=1
+produceUnits: isScorpion
+description: -Recruitment \n -Pz.8 Scorpion medium tank
+iconImage: ROOT:/data/unitsIcons/tank_Icon.png
+
+[action_Reich_Destroyer]
+isVisible:if self.globalTeamTags(includes='Reich') and memory.enabledU == true and not self.tags(includes='fort')
+isLocked: if self.customTimer < 1200
+isLockedMessage: Wait %{1200 - self.customTimer} seconds
+text: Pz.100 Destroyer
+addActionCooldownTime: 300s
+buildSpeed: 0s
+price: Rc=1700, Raw=250,Lt=3
+produceUnits: isDestroyer
+description: -Recruitment \n -Pz.100 Destroyer supertank
+iconImage: ROOT:/data/unitsIcons/tank_Icon.png
+
+[action_Reich_Elefant]
+isVisible:if self.globalTeamTags(includes='Reich') and memory.enabledU == true and not self.tags(includes='fort')
+isLocked: if self.customTimer < 420
+isLockedMessage: Wait %{420 - self.customTimer} seconds
+text: Elefant
+addActionCooldownTime: 300s
+buildSpeed: 0s
+price: Rc=1200, Raw=170,Lt=2
+produceUnits: isElefant
+description: -Recruitment \n -Elefant artillery
+iconImage: ROOT:/data/unitsIcons/tank_Icon.png
+
