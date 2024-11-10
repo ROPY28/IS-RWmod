@@ -1,0 +1,72 @@
+[core]
+@memory wheels: number
+@memory movement: unit
+[hiddenAction_vehModuleInit]
+autoTriggerOnEvent: created
+@global wheels: 4
+@global movementType: track
+
+
+[attachment_10]
+x:-10
+y:12
+height:0
+idleDir:0
+
+canBeAttackedAndDamaged: true
+
+keepAliveWhenParentDies: false
+onCreateSpawnUnitOf: ${movementType}
+
+setDrawLayerOnTop: true
+isVisible: true
+
+rotateWithParent: true
+lockRotation: true
+
+onParentTeamChangeKeepCurrentTeam: false
+
+
+[attachment_11]
+x:10
+y:12
+@copyFromSection: attachment_10
+
+[attachment_12]
+x:-10
+y:-14
+@copyFromSection: attachment_10
+
+[attachment_13]
+x:10
+y:-14
+@copyFromSection: attachment_10
+
+
+
+[attachment_14]
+x:0
+y:16
+@copyFromSection: attachment_10
+onCreateSpawnUnitOf: engine
+
+
+
+[hiddenAction_breakdownRG]
+autoTrigger: if self.numberOfAttachedUnits(withTag='moveModule') < ${wheels} and not self.tags(includes='breakdownEngine')
+
+temporarilyAddTags: breakdownRG
+setUnitStats: moveSpeed=${movement.moveSpeed}*(0.20/( ${wheels} - self.numberOfAttachedUnits(withTag='moveModule')))
+
+
+[hiddenAction_breakdownEngine]
+autoTrigger: if self.numberOfAttachedUnits(lessThan=1, withTag='engine') and not self.tags(includes='breakdownEngine')
+temporarilyAddTags: breakdownEngine
+setUnitStats: maxTurnSpeed=0, moveSpeed=0
+
+
+[hiddenAction_breakdownEngineRe]
+autoTrigger: if self.numberOfAttachedUnits(greaterThan=0, withTag='engine') and self.tags(includes='breakdownEngine')
+
+temporarilyRemoveTags: breakdownEngine
+setUnitStats: maxTurnSpeed=${movement.moveSpeed}, moveSpeed=${movement.moveSpeed}

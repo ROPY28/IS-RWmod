@@ -1,0 +1,102 @@
+
+[core]
+showInEditor: false
+
+tags: module,invisible
+
+maxHp: 10
+armourMinDamageToKeep:0
+
+radius: 6
+softCollisionOnAll: 0
+mass: 100000000
+
+price: 0
+buildSpeed: 0s
+
+isBio: false
+isBug: false
+
+showOnMinimap: false
+isUnselectable: true
+isUnselectableAsTarget: true
+
+numBitsOnDeath: 0
+explodeOnDeath: false
+soundOnDeath: none
+effectOnDeath: none
+hideScorchMark: true
+
+disableDeathOnZeroHp:true
+
+
+
+
+[hiddenAction_moduleR]
+autoTriggerOnEvent: created
+autoTrigger: if self.hp(full=true)
+temporarilyRemoveTags: invisible, breakdown
+temporarilyAddTags: 
+
+[hiddenAction_moduleD]
+autoTrigger: if self.hp(lessThan=1)
+temporarilyRemoveTags: 
+temporarilyAddTags: invisible, breakdown
+#spawnEffects: CUSTOM:spark*2, CUSTOM:smokeSmall, CUSTOM:fireSmall
+
+
+[hiddenAction_repairCheck]
+autoTriggerOnEventRecursionLimit: 1
+autoTriggerOnEvent: newMessage(withTag="repair")
+addResourcesWithLogic: hp=self.maxHp
+
+[hiddenAction_ATHedgehog]
+autoTrigger: if numberOfUnitsInAllTeams(withTag='ATHedgehog', greaterThan=0, withinRange=15) and self.tags(includes='track')
+addResources: hp=-20
+
+
+
+
+
+[decal_destroed]
+onlyTeam: any
+basePosition: self
+layer: beforeUI
+xOffsetAbsolute: 0
+yOffsetAbsolute: 0
+dirOffset: 0
+alwaysStartDirAtZero: true
+hOffset: 0
+total_frames: 1
+imageScale: 0.8
+image: ROOT:common\buildings\isDefense\mine.png
+isVisible: if self.tags(includes='invisible')
+
+
+[graphics]
+drawLayer: ground2
+imageScale: 1
+total_frames: 1
+showHealthBar: false
+showEnergyBar: false
+disableLowHpFire: true
+disableLowHpSmoke: true
+
+image_back:   NONE
+image:        SHARED:blank.png
+image_wreak:  NONE
+image_shadow: NONE
+shadowOffsetX:0
+shadowOffsetY:0
+
+
+
+
+[attack]
+canAttack: false
+
+[movement]
+movementType: NONE
+
+[ai]
+lowPriorityTargetForOtherUnits: true
