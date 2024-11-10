@@ -23,7 +23,7 @@ showTransportBar: false
 [global_resource_rc]
 displayNameShort:Supply
 displayName: 
-displayPos:11
+displayPos:2
 hidden:false
 priority: 11
 displayColor:#ffcb9851
@@ -31,13 +31,15 @@ iconImage: ROOT:/data/images/Rc4.png
 [global_resource_Raw]
 displayName: 
 displayNameShort: Raw
-displayPos:10
+displayPos:2
 hidden:false
 priority: 10
 displayColor:#ffcdc6b3
 iconImage: ROOT:/data/images/raw.png
 
+
 [global_resource_L]
+displayPos:3
 displayName: 
 displayNameShort: limit
 hidden:false
@@ -46,6 +48,7 @@ displayColor:#ff2b7dbe
 iconImage: ROOT:/data/images/L.png
 
 [global_resource_Lt]
+displayPos:3
 displayName: 
 displayNameShort:  limit
 hidden:false
