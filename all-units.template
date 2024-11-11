@@ -25,7 +25,7 @@ displayNameShort:Supply
 displayName: 
 displayPos:11
 hidden:false
-priority: 11
+priority: 2
 displayColor:#ffcb9851
 iconImage: ROOT:/data/images/Rc4.png
 [global_resource_Raw]
@@ -33,7 +33,7 @@ displayName:
 displayNameShort: Raw
 displayPos:10
 hidden:false
-priority: 10
+priority: 3
 displayColor:#ffcdc6b3
 iconImage: ROOT:/data/images/raw.png
 
@@ -41,7 +41,7 @@ iconImage: ROOT:/data/images/raw.png
 displayName: 
 displayNameShort: limit
 hidden:false
-priority: 3
+priority: 5
 displayColor:#ff2b7dbe
 iconImage: ROOT:/data/images/L.png
 
@@ -49,7 +49,7 @@ iconImage: ROOT:/data/images/L.png
 displayName: 
 displayNameShort:  limit
 hidden:false
-priority: 4
+priority: 5
 displayColor:#ff2b9dbe
 iconImage: ROOT:/data/images/LT.png
 
@@ -60,6 +60,7 @@ displayName: Victory points
 displayName_ru: Очки победы
 displayColor: #009BDE
 hidden: false
+priority: 1
 displayRoundedDown:true
 displayTextAppendResource: limVP
 
@@ -69,6 +70,7 @@ displayNameShort:
 displayColor: #A2A2A2
 displayTextPrefix:/
 hidden: true
+priority: 1
 #displayRoundedDown:true
 displayTextAppendResource: enemyVP
 
@@ -79,6 +81,7 @@ displayName_ru: | Очки врага
 displayNameShort:
 displayColor: #DE2C00
 hidden: true
+priority: 1
 displayRoundedDown:true
 #displayTextAppendResource: limVP
 #displayTextPrefix: \
