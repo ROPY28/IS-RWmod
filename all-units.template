@@ -5,6 +5,7 @@ fogOfWarSightRange:0
 @memory heatcoef:number
 @memory heatdeccoef:number
 
+
 [hiddenAction_Victoria]
 autoTrigger: if self.resource.VP>=self.resource.limVP and   self.resource.VP>=1
 temporarilyAddTags: Winner
